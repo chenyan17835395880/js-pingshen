@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>贪吃蛇</title>
+	<style>
+	.sence{
+		width: 600px;
+		height: 600px;
+		/* background: #000; */
+		background: url('tanchishe.jpg') center / cover;
+		position: absolute;
+		top: 50%;left:50%;
+		margin-left: -300px;
+		margin-top: -300px;
+		border-bottom: 1px solid #000;
+		border-right: 1px solid #000;
+		box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+	}
+	.block{
+		width: 29px;
+		height: 29px;
+		float: left;
+		margin-top: 1px;
+		margin-left: 1px;
+		/* background: #E6A63F; */
+
+	}
+	.hot{
+		background: #4D3672!important;/* 优先级最高 */
+	}
+	botton{
+		font-size: 20px;
+		text-align: center;
+		background: #E6A63F;
+		padding: 20px 30px;
+		border-radius: 8px;
+		position: absolute;
+		top: 50px;
+		margin-left: 50px;
+		box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+	}
+	.jieshu{
+		top: 150px;
+	}
+	</style>
+</head>
+<body>
+	<div class="sence"></div>
+	<botton class='kaishi'>开始游戏</botton>
+	<botton class="jieshu">结束游戏</botton>
+</body>
+<script src="snake.js"></script>
+<script>
+	window.onload=function(){
+		let bot=document.querySelector('.kaishi');
+		let jieshu=document.querySelector('.jieshu');
+		let obj=new Snake();
+		bot.onclick=function(){					
+			obj.start();
+			// obj.dropfood=null;
+		}
+		jieshu.onclick=function(){
+			 clearInterval(obj.t);
+			 // obj.dropfood=null;
+		}
+		
+	}
+	
+</script>
+</html>

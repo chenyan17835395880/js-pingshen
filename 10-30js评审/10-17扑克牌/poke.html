@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>poke</title>
+	<script src="jquery-3.2.1.js"></script>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background: #1d0c3b;
+	}
+	.zhuozi{
+		width: 700px;
+		height: 600px;
+		/* background: #9c27b0; */
+		position: absolute;
+		top: 0;bottom: 0;
+		left: 0;right: 0;
+		margin: auto;
+		z-index: -999;
+	}
+	.poke{
+		width: 90px;
+		height: 130px;
+		background: #fff;
+		position: absolute;
+		left: 250px;top: 0;
+	}
+	.active{
+		box-shadow: 0 0 0 2px rgba(0, 0, 0, 1.0);
+	}
+	.botL,.botR{
+		text-align: center;
+		color: #fff;
+		font-size: 30px;
+		width: 90px;
+		height: 40px;
+		background:#DE982C;
+		border: 2px solid #FFF;
+		border-radius: 5px;
+		position: absolute;
+		top: 450px;
+		left: 0;right: 0;
+		margin-right: auto;
+		margin-left: auto;
+		transition: all 1s;
+	}
+	.botR{
+		top: 520px;
+	}
+	</style>
+</head>
+<body>
+	<div class="zhuozi">
+		<div class="zuo"></div>
+		<botton class="botL">→</botton>
+		<botton class="botR">←</botton>
+		<div class="you"></div>
+	</div>
+</body>
+<script>
+	$(function(){
+		/*产生扑克*/
+		let poke=[];/*{hua,num}*/
+		let huas=['c','h','d','s'];////////花色
+		let flag={};/////去重
+		let zhuozi=$('.zhuozi');
+		let botL=$('.botL');
+		let botR=$('.botR');
+		let hua,num;
+		while(poke.length<52){
+			hua=huas[Math.floor(Math.random()*huas.length)];
+			num=Math.floor(Math.random()*13+1);
+			if(!flag[`${hua}_${num}`]){
+				poke.push({hua,num});
+				flag[`${hua}_${num}`]=true;
+			}	
+		}
+		console.log(poke);
+
+		/*发牌*/
+		let index=0;
+		for(let i=0;i<7;i++){		
+			for(let j=0;j<=i;j++){
+				let left=305-50*i+100*j;
+				let top=50*i;				
+				$('<div>').addClass('poke').appendTo(zhuozi)
+				.css({'background-image':`url(images/${poke[index].num}${poke[index].hua}.jpg)`,'background-size':'cover'})
+				// .html(`${poke[index].hua}-${poke[index]['num']}`)
+				.delay(index*6).animate({left,top})
+				.attr('id',`${i}_${j}`)
+				.data('num',poke[index].num);
+				index++;		
+			}
+		}
+		for(;index<poke.length;index++){
+			let left=5;
+			let top=450;
+			$('<div>').addClass('poke zuo').appendTo(zhuozi)
+			.css({'background-image':`url(images/${poke[index].num}${poke[index].hua}.jpg)`,'background-size':'cover'})
+			// .html(`${poke[index].hua}-${poke[index].num}`)
+			.delay(index*6).animate({left,top})
+			.attr('id',`${-2}_${-2}`)
+			.data('num',poke[index].num);		
+		}
+
+		let first=null;//记录点击的第一个对象
+		zhuozi.on('click','.poke',function(e){///////事件委派中，要委派的对象和被委派的对象都是一个选择器
+			let ele=e.target;
+
+			/*判断是否被压住,被压住的不能抬起，给每个扑克加id，记录是哪一行，哪一列*/
+			let ID=$(ele).attr('id');
+			let Attr=ID.split('_');
+			let ele1=`#${Attr[0]*1+1}_${Attr[1]*1}`;
+			let id2=`${Attr[0]*1+1}_${Attr[1]*1+1}`;
+			if($(ele1).length||$(`#${id2}`).length){///////通过jQuery获取对象，不管有没有这个对象，都是一个jQUery对象
+				return;
+			}
+			/*选中的会抬起*//*然后飞走*/
+			$(ele).toggleClass('active');
+			if($(ele).hasClass('active')){
+				$(this).animate({top:'-=20px'});
+			}else{
+				$(this).animate({top:'+=20px'});
+			}
+			/*判断点数加起来的值*/
+			if(!first){
+				first=ele;
+			}else{
+				///first ele/active
+				if($(first).data('num')+$(ele).data('num')==14){
+					$(first).animate({left:600,top:0,opacity:0},function(){
+						$(this).remove();///remove()会比animate()早执行
+					})
+					$(ele).animate({left:600,top:0,opacity:0},function(){
+						$(this).remove();
+					})
+				}else{
+					$('.active').animate({top:'+=20px'},function(){
+						$(this).removeClass('active');
+					})					
+				}
+				first=null;
+			}	
+		})
+		let i=0;
+		botL.on('click',function(){
+			if(!$('.zuo').length){
+				return;
+			}
+			$('.zuo').last().animate({left:'606px'}).removeClass('zuo').addClass('you').css({zIndex:`${i++}`});
+		})
+		botR.on('click',function(){
+			if(!$('.you').length){
+				return;
+			}
+			$('.you').first().animate({left:'5px'}).removeClass('you').addClass('zuo').css({zIndex:`${i++}`});
+		})
+		
+
+
+
+	})
+
+
+
+</script>
+</html>

@@ -1,0 +1,452 @@
+/*
+* @Author: Administrator
+* @Date:   2017-10-21 14:12:45
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-10-25 09:09:06
+*/
+@import url('base.css');
+.banner{
+	padding: 240px 0 10px 0;
+    text-align: center;
+    background: rgba(0,0,0,.4) url(../img/banner8.jpg);
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    /* background-color: rgba(0,0,0,.4); */
+}
+.banner .container {
+    z-index: 9999 !important;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+     opacity: 0.7;
+    z-index: 1;
+    /* overflow: hidden; */
+}
+.top{
+	position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+	width: 100%;
+	height: 54px;
+	padding: 0 88px;
+	border-bottom: 1px dashed #311208;
+}
+.top p{
+	width:200px;
+	height: 100%;
+	line-height: 55px;
+	font-size: 15px;
+	color: #F4CCCF;
+	/* float: left; */
+}
+.top ul{
+	float:right;
+}
+.top ul li{
+	line-height: 55px;
+	float: left;
+	padding: 0 5px;
+}
+.center{
+	width: 100%;
+	position: absolute;
+    top: 55px;
+    left: 0;
+    z-index: 999; 
+	overflow: hidden;
+}
+.center-left{
+	margin-top: 25px; 
+}
+.center-left img{
+	display: block;
+	margin: 0 auto;
+	width: 140px;
+	height: 53px;
+}
+.center ul{
+	width: 900px;	
+	padding: 0 20px;
+	height: 53px;
+	margin-top: 20px;
+}
+@media only screen and (max-width:893px ){
+	.center ul{
+		margin: 0 auto;
+	}
+	.top p{
+		margin: 0 auto;
+	}
+}
+.center ul li{
+	float: left;
+	padding: 0 20px;
+	transition: all 0.6s;
+	margin-right: 20px;
+}
+.center ul li:nth-child(4){
+	background:#F98615;
+	border-radius: 2px;
+}
+.center ul li:hover{
+	background:#F98615;
+	border-radius: 2px;
+}
+.center ul li a{
+	font-size: 17px;
+	color: #fff;
+	line-height: 53px;
+}
+.banner-text{
+	margin-top: 50px;
+	margin-bottom: 70px;
+	padding-bottom: 30px;
+    color: #fff;
+    z-index: 999;
+    position: relative;
+}
+.banner-text h2{
+	color: #FF8E1A;
+    font-size: 55px;
+    line-height: 55px;
+    font-weight: 300;
+}
+.banner-text span{
+    border: 2px solid #fff;
+    border-radius: 50%;
+    display: inline-block;
+    height: 16px;
+    position: relative;
+    width: 16px;
+    z-index: 1;
+    margin-top: 15px;
+}
+.banner-text span::after {
+    right: 16px;
+}
+.banner-text span::before{
+	left: 16px;
+}
+.banner-text span::before,.banner-text span::after {
+    background: #F4BFB9;
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 5px;
+    width: 150px;
+    z-index: -1;
+}
+/* 活动介绍 */
+.jieshao{
+	width: 950px;
+	/* height:100px; */
+	position: absolute;
+	top: 465px;
+	left: 0;right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 999;
+	box-shadow:0px 1px 20px 5px rgba(0, 0, 0, 0.2);
+}
+.jieshao-top{
+	width: 100%;
+	height: 250px;
+}
+.top-left{
+	width: 220px;
+	height: 220px;
+	background: #fff;
+	overflow: hidden;
+	padding: 20px;
+	float: left;
+	position: relative;
+}
+.top-left .dong-tiao,.dong-tiao1{
+	width: 0;
+	height: 2px;
+	background: #FF0303;
+	position: absolute;
+	right:0;bottom:0;
+	transition: all 0.5s;
+}
+.jieshao:hover .dong-tiao,.jieshao:hover .dong-tiao1{
+	 width: 100%;
+ }
+.jieshao:hover .dong-tiao2,.jieshao:hover .dong-tiao3{
+	height: 100%;
+}
+.dong-tiao2,.dong-tiao3{
+	width: 2px;
+	height: 0;
+	background:#FF0303;
+	position: absolute;
+	right:0;bottom:0;
+	transition: all 0.5s;
+}
+.dong-tiao1{
+	left:0;
+}
+.dong-tiao3{
+	top:0;
+}
+.gray{
+	width: 100%;
+	height: 465px;
+	background: #f5f4f0;
+}
+.text-one{
+	font-size: 20px;
+	color: #202020;
+	text-align: center;
+	margin-top: 25px;
+}
+.text-two{
+	display: block;
+	font-size: 15px;
+	color: #414040;
+	text-align: center;
+	line-height: 20px;
+	margin-top: 20px;
+}
+.text-three{
+	width:60px;
+	text-align: center;
+	font-size: 15px;
+	color: #F68414;
+	padding:5px 20px;
+	background: #fff;
+	border: 1px solid #F68414;
+	margin: 0 auto;
+	margin-top: 25px;
+	transition: all 0.4s;
+}
+.text-three:hover{
+	background: #F68414;
+	color: #fff;
+}
+.top-right{
+	width: 690px;
+	height: 260px;
+	float: right;
+	overflow: hidden;
+	position: relative;
+}
+.top-right img{
+	display: block;
+	width:100%;
+	height: auto;
+}
+.top-left1{
+	float: right;
+}
+.top-right1{
+	float: left;
+}
+.bottom-left{
+	width: 260px;
+	height: 260px;
+	float: left;
+	position: relative;
+}
+.bottom-left img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.bottom-right{
+	width: 650px;
+	height: 220px;
+	background: #fff;
+	padding: 20px;
+	float: right;
+}
+/* 图 */
+.tu{
+	width: 100%;
+	height: 480px;
+	overflow: hidden;
+}
+.tu img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+/* 活动 */
+.gray1{
+	height: 425px;
+}
+.huodong{
+	width: 950px;
+    height: 475px;
+    background: #fff;
+    position: absolute;
+    top: 1414px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 999;
+    box-shadow:0px 11px 20px 5px rgba(0, 0, 0, 0.2);
+}
+.huodong_top{
+	width: 100%;
+	height: 50%;
+}
+.huodong_top li{
+	width: 25%;
+	height: 100%;
+	float: left;
+	background:#fff;
+	overflow: hidden;
+}
+.huodong-text-top{
+	font-size: 20px;
+	color: #202020;
+	text-align: center;
+	margin-top: 50px;
+}
+.huodong-text-center{
+	font-size: 15px;
+	color: #414040;
+	text-align: center;
+	line-height: 20px;
+	margin-top: 20px;
+	padding: 20px;
+	padding-top: 0;
+}
+.huodong_top img{
+	display: block;
+	width: 140%;
+	height: auto;
+}
+.huodong_top .huodong-img2{
+	width: 147%;
+}
+.huodong_top .huodong-img3{
+	width: 150%;
+}
+.huodong_top .huodong-img4{
+	width: 100%;
+}
+.tu .tu1{
+	width: 100%;
+}
+.huodong_top .img1{
+	background: url("../img/naiyou3.jpg") center / cover;
+	transition: all 0.5s;
+}
+.huodong_top .img1:hover{
+	background: url("../img/tiandian1.jpg") center / cover;
+	transition: all 0.5s;
+}
+.huodong_top .img2{
+	background: url("../img/tiandian3.jpg") center / cover;
+	transition: all 0.5s;
+}
+.huodong_top .img2:hover{
+	background: url("../img/tiandian2.jpg") center / cover;
+	transition: all 0.5s;
+}
+.huodong_top .img3{
+	background: url("../img/tiandian5.jpg") center / cover;
+	transition: all 0.5s;
+}
+.huodong_top .img3:hover{
+	background: url("../img/tiandian4.jpg") center / cover;
+	transition: all 0.5s;
+}
+.huodong_top .img4{
+	background: url("../img/tiandian6.jpg") center / cover;
+	transition: all 0.5s;
+}
+.huodong_top .img4:hover{
+	background: url("../img/tiandian7.jpg") center / cover;
+	transition: all 0.5s;
+}
+/* footer */
+.footer{
+	/* padding: 80px 0; */
+	overflow: hidden;
+}
+.footer-box{
+	margin: 90px 0;
+    overflow: hidden;
+    text-align: center;
+}
+.tubiao{
+	width: 70px;
+	height: 70px;
+	/* background: yellow; */
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+.footer-box span {
+    color: #333;
+    display: block;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 50px;
+}
+.footer-box p{
+	color: #555;
+    display: block;
+    font-size:20px;
+    font-weight: 300;
+    line-height: 35px;
+    margin-top: 7px;
+}
+/* .footer .footer-box:nth-child(1){
+	border: 1px solid #CCCCCC;
+} */
+.border{
+	position: relative;
+}
+.border::after{
+	background: #ccc;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+	box-sizing: border-box;
+}
+.tubiao img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+/* 所有 */
+.all{
+	overflow: hidden;
+	padding: 35px 0;
+	background: #361507;
+}
+.all-wenben{
+	color: #ccc;
+    font-size: 18px;
+    line-height: 35px;
+    text-align: center;
+
+}
+/* top */
+.back{
+	width: 70px;
+	height: 70px;
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 50%;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}

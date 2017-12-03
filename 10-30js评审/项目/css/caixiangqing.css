@@ -1,0 +1,285 @@
+/*
+* @Author: Administrator
+* @Date:   2017-10-26 10:31:20
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-10-26 10:55:19
+*/
+@import url('base.css');
+.tu{
+	width: 100%;
+	height: 600px;
+	overflow: hidden;
+	position: relative;
+}
+.tu img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.tu-left{
+	width: 340px;
+	height:460px;
+	background: rgba(255,192,203,0.7);
+	/*opacity: 0.6;*/
+	position: absolute;
+	bottom:70px;
+	left:120px;
+	overflow: hidden;
+}
+.left-top{
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+	margin-top: 50px;
+}
+.tu-left p{
+	font-size: 22px;
+	color: #e55504;
+	text-align: center;
+	margin-top: 5px;
+}
+.left-center{
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+	margin-top: 5px;
+}
+.tu-left .gang{
+	width: 80%;
+	height:1px;
+	color: #000;
+	margin:0 auto;
+	margin-top: 3px;
+	position: relative;
+	z-index: 9999;
+}
+.left-text{
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+	line-height:20px;
+	padding:15px;
+	margin-top: 10px;
+}
+/*原理*/
+.yuanliao{
+	position: relative;
+	height: 1062px;
+}
+.yuanliao span{
+	width: 170px;
+	height:1px;
+	background: #965C14;
+	display: block;
+	margin:0 auto;
+	margin-top: 5px;
+}
+.yuanliao-left{
+	width:80%;
+	height:800px;
+	border:1px solid #000;
+	overflow: hidden;
+	border-radius: 50%;
+	position: absolute;
+	top:0;left:-350px;
+	margin-top: 160px;
+}
+.yuanliao-left img{
+	display: block;
+	width: 75%;
+	height: auto;
+	margin:0 auto;
+	margin-top: 12%;
+	margin-left: 250px;
+	border-radius:50%;
+}
+.yuanliao-text{
+	font-size: 22px;
+	color: #965C14;
+	text-align: center;
+	margin-top: 50px;
+}
+.yuanliao-yingwen{
+	font-size: 14px;
+	color:#965C14;
+	text-align: center;
+	margin-top: 5px;
+}
+.yuanliao1{
+	width: 555px;
+	height: 200px;
+	/*background: red;*/
+	position: absolute;
+	left:375px;
+	top:84px;
+	overflow: hidden;
+}
+.yuanliao-zhe{
+	width: 555px;
+	height: 180px;
+	/*background: red;*/
+	position: absolute;
+	left:0;
+	top:104px;
+	border:1px solid #000;
+	opacity: 0;
+}
+.yuanliao1:hover .yuanliao-zhe{
+	/*transform: translateX(375px);*/
+	opacity: 1;
+}
+.yuanliao1-left{
+	width: 150px;
+	height: 150px;
+	margin-top: 48px;
+	border:1px solid #000;
+	background: #fff;
+	overflow: hidden;
+	border-radius: 50%;
+	float: left;
+}
+.yuanliao1-left img{
+	width: 90%;
+	height: auto;
+	margin-top: 5px;
+	margin-left: 8px;
+	border-radius: 50%;
+}
+.yuanliao1-right{
+	font-size: 20px;
+	color:#000;
+	float: left;
+	margin-top: 30px;
+	margin-left: 20px;
+}
+.yuanliao1-jieshao{
+	width: 70%;
+	font-size: 14px;
+	color: #585B62;
+	margin-left:172px;
+	margin-top: 80px;
+}
+.yuanliao2{
+	top:295px;
+	left: 625px;
+}
+.yuanliao1-right1{
+	margin-top: 60px;
+}
+.yuanliao1-jieshao1{
+	margin-top: 100px;
+}
+.yuanliao3{
+	top:592px;
+	left:590px;
+}
+.yuanliao3 img{
+	height:92%;
+}
+.yuanliao4{
+	top:802px;
+	left:375px;
+}
+/*详情*/
+.xiangqing{
+	padding:0 80px ;
+
+}
+.xiangqing-box{
+	font-size: 16px;
+	color:#34363b;
+	line-height: 24px;
+
+}
+/* footer */
+.footer{
+	/* padding: 80px 0; */
+	overflow: hidden;
+	border-top: 1px solid #CCCCCC;
+	margin-top: 100px;
+}
+.footer-box{
+	margin: 90px 0;
+	overflow: hidden;
+	text-align: center;
+}
+.tubiao{
+	width: 70px;
+	height: 70px;
+	/* background: yellow; */
+	margin: 0 auto;
+	margin-bottom: 30px;
+}
+.footer-box span {
+	color: #333;
+	display: block;
+	font-size: 22px;
+	font-weight: 500;
+	line-height: 50px;
+}
+.footer-box p{
+	color: #555;
+	display: block;
+	font-size:20px;
+	font-weight: 300;
+	line-height: 35px;
+	margin-top: 7px;
+}
+/* .footer .footer-box:nth-child(1){
+	border: 1px solid #CCCCCC;
+} */
+.border{
+	position: relative;
+}
+.border::after{
+	background: #ccc;
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 1px;
+	box-sizing: border-box;
+}
+/* 所有 */
+.all{
+	overflow: hidden;
+	padding: 35px 0;
+	background: #361507;
+}
+.all-wenben{
+	color: #ccc;
+	font-size: 18px;
+	line-height: 35px;
+	text-align: center;
+
+}
+/* top */
+.back{
+	width: 70px;
+	height: 70px;
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 50%;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+}
+/* 返回首页 */
+.back-shouye{
+	font-size: 13px;
+	line-height: 24px;
+	/*text-align: center;*/
+	 /*padding: 0 80px;*/
+}
+.go-back{
+	margin-left:140px;
+}
+.go-back a{
+	color: #4C4C4C;
+}
+.go-back a:hover{
+	color: #F98615;
+	border-bottom: 1px solid #F98615;
+}

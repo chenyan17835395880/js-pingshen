@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>palette</title>
+	<link rel="stylesheet" href="palette.css">
+</head>
+<body>
+	<div class="top">
+		<div class="top-left">画板</div>
+		<div class="chexiao">撤销</div>
+		<div class="eraser">橡皮擦</div>
+		<a href="" class="save">保存</a>
+		<div class="xinjian">新建</div>
+		<div class="clearAll">清空</div>
+		<div class="reverse">反向</div>
+		<ul>
+			<li class="line" id="tools">线</li>
+			<li class="dash" id="tools">虚线</li>
+			<li class="circle" id="tools">圆</li>
+			<li class="poly" id="tools">多边形</li>
+			<li class="polyJ" id="tools">多角形</li>
+			<li class="rect" id="tools">矩形</li>
+			<li class="qianbi" id="tools">铅笔</li>
+		</ul>
+		<ul class="fill-stroke">
+			<li class="fill">填充</li>
+			<div class="color"><input type="color" id="fill"></div>
+			<li class="stroke">描边</li>
+			<div class="color1"><input type="color" id="stroke"></div>
+		</ul>
+		<ul class="wenzi">
+			<li class="font">文字</li>
+			<li class="cai">裁切</li>
+			<li class="wenben"></li>
+			<li class="wenben"></li>
+		</ul>
+	</div>
+	<div class="bottom">
+		<canvas width="1000" height="450">
+		</canvas>
+		<div class="eraser-box"></div>
+		<div class="caiqie"></div>
+		<div class="opacity"></div>
+	</div>
+</body>
+<script src="palette.js"></script>
+<script src="index.js"></script>
+</html>

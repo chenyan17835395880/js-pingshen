@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="swiper.min.css">
+
+  <!-- Demo styles -->
+  <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #333;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -250px;
+      margin-top: -250px;
+    }
+    .swiper-wrapper{
+      width: 500px;
+      height: 500px;
+    }
+    .swiper-slide {
+      display: block;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 500px 500px;
+      height: 500px;
+      border: 1px solid red;
+    }
+    .swiper-slide:nth-child(2){
+      border: 1px solid orange;
+    }
+    .swiper-slide:nth-child(3){
+      border: 1px solid #BFC9D8;
+    }
+    .swiper-slide:nth-child(4){
+      border: 1px solid #170834;
+    }
+    .swiper-slide:nth-child(5){
+      border: 1px solid #5A398E;
+    }
+    .swiper-slide:nth-child(6){
+      border: 1px solid #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <a href="../9-28打字游戏/code.html" class="swiper-slide" style="background-image:url(img/dazi.jpg)"></a>
+      <a href="../9-29贪吃蛇/snake.html" class="swiper-slide" style="background-image:url(img/snake.jpg)"></a>
+      <a href="../10-10画板/palette.html" class="swiper-slide" style="background-image:url(img/palette.jpg)"></a>
+      <a href="../10-17扑克牌/poke.html" class="swiper-slide" style="background-image:url(img/squeezer.jpg)"></a>
+      <a href="../10-26五子棋/index.html" class="swiper-slide" style="background-image:url(img/wuziqi.jpg)"></a>
+      <a href="../项目/shouye.html" class="swiper-slide" style="background-image:url(img/xiangmu.jpg)"></a>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'cube',
+      grabCursor: true,
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+</body>
+</html>

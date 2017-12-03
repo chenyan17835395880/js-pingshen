@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>codeGame</title>
+	<link rel="stylesheet" href="css/code.css">
+	<script src="js/code.js"></script>
+</head>
+<body>
+	<!-- <botton><a href="">重新开始</a></botton> -->
+
+	<!-- <input type="button" onclick="" value="重新开始" /> -->
+	<div class="record">
+		<div class="start">
+			<botton>开始游戏</botton>
+		</div>
+		
+		<div class="score">&nbsp;&nbsp;分值:<span>0</span></div>
+		<div class="life">&nbsp;&nbsp;生命:<span>10</span></div>
+		<div class="guanka">&nbsp;&nbsp;关卡:<span>1</span></div>
+	</div>
+</body>
+<script>
+	window.onload=function(){
+		let bot=document.querySelector('botton');
+		let start=document.querySelector('.start');
+		let code=new Game();
+		bot.onclick=function(){
+			start.style.opacity=0;
+			code.start();
+		}
+		
+	}
+	
+</script>
+</html>

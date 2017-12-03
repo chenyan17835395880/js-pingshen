@@ -1,0 +1,202 @@
+/*
+* @Author: Administrator
+* @Date:   2017-10-26 09:00:02
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-10-28 14:54:27
+*/
+@mixin auto{
+	margin-left: auto;
+	margin-right: auto;
+}
+@mixin center{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	margin: auto;	
+}
+@mixin centers{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -$w/2;
+	margin-left: -$h/2;
+}
+@mixin circle{
+	-webkit-border-radius:50%;
+	-moz-border-radius:50%;
+	border-radius:50%;
+}
+@mixin borderR($r){
+	-webkit-border-radius:$r;
+	-moz-border-radius:$r;
+	border-radius:$r;
+}
+$width: 600px;
+
+
+*{
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+html,body{
+	width: 100%;
+	height: 100%;
+}
+body{
+	overflow: hidden;
+	background:#4F3774;
+}
+.qipan{
+	width: $width;
+	height: $width;
+	@include center;
+	background: #4F3774;
+	.qizi{
+	   width:$width/15-10px;
+	   height:$width/15-10px;
+	   z-index:999;
+	   position: relative;
+       cursor:pointer;
+	   float:left;
+	   margin:5px;
+	   @include circle;
+
+	}
+	.qizi.hei{
+	   z-index:999;
+	   background:#000;
+	}
+	.qizi.bai{
+	   z-index:999;
+	   background:#fff;
+	}
+	.hang{
+	   width:$width - $width/15;
+	   height:1px;
+	   background:#000;
+	   position:absolute;
+	   left:$width / 15 / 2;
+	   opacity:0;
+	}
+	.shu{
+	   width:1px;
+	   height:$width - $width / 15;
+	   background:#000;
+	   position:absolute;
+	   top:$width / 15 / 2;
+	   opacity:0;
+	}
+	@for $i from 0 through 14{
+	   div:nth-of-type(#{$i+1}){
+	      top:$width/30+$i*$width/15;
+	      animation:hengd .3s ease $i*0.1s forwards;
+	   }
+	   span:nth-of-type(#{$i+1}){
+	      left:$width/30+$i*$width/15;
+	       animation:hengds .3s ease $i*0.1s forwards;
+	   }
+	}
+	i{
+	  position:absolute;
+	  width:$width/60/1.5;
+	  height:$width/60/1.5;
+	  background:#000;
+	  opacity:0;
+	  animation:diaoluo 1s ease forwards;
+	  @for $i from 1 through 5{
+		  &:nth-of-type(#{$i}){
+	         animation-delay:$i*0.2s;
+	      }
+	  }
+      @include circle;
+
+      &:nth-of-type(1){
+        left:3.5*$width/15;
+        top: 3.5*$width/15;
+      }
+      &:nth-of-type(2){
+        left:11.5*$width/15;
+        top:3.5*$width/15;
+      }
+      &:nth-of-type(3){
+        left:7.5*$width/15;
+        top:7.5*$width/15;
+      }
+      &:nth-of-type(4){
+        left:3.5*$width/15;
+        top:11.5*$width/15;
+      }
+      &:nth-of-type(5){
+        left:11.5*$width/15;
+        top:11.5*$width/15;
+      }
+	}
+}
+
+@keyframes diaoluo{
+	0%{
+	   transform:translate3d(0,-800px,0);
+	   opacity:0;
+	}
+	100%{
+	   transform:translate3d(-50%,-50%,0);
+	   opacity:1;
+	}
+}
+@keyframes hengd{
+	0%{
+	   transform:translate3d(0px,20px,0);
+	   opacity:0;
+	}
+	100%{
+	   transform:translate3d(0,0,0);
+	   opacity:1;
+	}
+}
+@keyframes hengds{
+	0%{
+	   transform:translate3d(20px,0px,0);
+	   opacity:0;
+	}
+	100%{
+	   transform:translate3d(0,0,0);
+	   opacity:1;
+	}
+}
+	.start{
+		width: 150px;
+		height:50px;
+		background:#DE982C;
+		margin:50px;
+        border-radius:5px;
+        font-size:24px;
+        color:#fff;
+        text-align:center;
+        line-height:50px;
+        border:none;
+        margin-top:50px;
+        cursor: pointer;
+	}
+	.btn{
+	width: 200px;
+	height: auto;
+	position: absolute;
+	left: 50px;
+	top: 40px;
+	button{
+		width: 150px;
+		height:50px;
+		background:#DE982C;
+		margin:10px;
+        border-radius:5px;
+        font-size:24px;
+        color:#fff;
+        text-align:center;
+        line-height:50px;
+        border:none;
+        cursor: pointer;
+	}
+}

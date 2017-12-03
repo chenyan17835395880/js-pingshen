@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五子棋</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<button class="start">开始游戏</button>
+<ul class="qipan"></ul>	
+<div class="btn">
+	<button class="people">人人对战</button>
+	<button class="com">人机对战</button>
+	<button class="rstart">重新开始</button>
+</div>
+</body>
+</html>
+<script>
+$(function(){
+	let ul=$('ul');
+	let btn=$('button')
+	let hei={};
+	let bai={};
+	let kb={};
+    let isAi=true;
+    let a=1;
+
+	$('.start').on('click',function(){
+         for(let i=0;i<btn.length;i++){
+         	$(btn[i]).css({background:'#DE982C',color: '#fff'});
+         }
+		 start();
+	})
+	$('.rstart').on('click',function(){
+         for(let i=0;i<btn.length;i++){
+         	$(btn[i]).css({background:'#DE982C',color: '#fff'});
+         }
+		 $('.rstart').css({background:'#DE982C',color: '#fff'});
+		 ul[0].innerHTML=null; 
+	     hei={};
+	     bai={};
+	     kb={};
+	     a=1;
+         isAi=true;
+		 start();
+		 // location.replace('index.html');
+	})
+	$('.com').on('click',function(){
+         for(let i=0;i<btn.length;i++){
+         	$(btn[i]).css({background:'#DE982C',color: '#fff'});
+         }
+		 $('.com').css({background:'#DE982C',color: '#fff'});
+         com()
+	})
+	$('.people').on('click',function(){
+         for(let i=0;i<btn.length;i++){
+         	$(btn[i]).css({background:'#DE982C',color: '#fff'});
+         }
+		 $('.people').css({background:'#DE982C',color: '#fff'});
+         people()
+	})
+function start(){
+	for(let i=0;i<15;i++){		
+		for(let j=0;j<15;j++){
+			kb[i+'_'+j]={x:i,y:j};
+			$('<li>').addClass('qizi')
+			.attr('id',i+'_'+j)
+			.data('pos',{x:i,y:j})
+			.appendTo('ul')		
+		}
+		$('<div>').addClass('hang').appendTo('ul')	
+		$('<span>').addClass('shu').appendTo('ul')	
+		if(i<5){
+			$('<i>').appendTo('ul')
+		}	
+	}
+}
+	function com(){
+	    let lis=$('ul>li');
+	    let flag=true;
+		lis.on('click',function(){
+			if($(this).hasClass('hei') || $(this).hasClass('bai')){
+				return;
+			}
+			data=$(this).data('pos')
+			if(flag){
+				$(this).addClass('hei');
+				hei[data.x+'_'+data.y] = true;
+				delete kb[data.x+'_'+data.y]
+				if(pd(data,hei)>=5){
+					lis.off();	
+					alert('黑棋赢');
+				}
+				if(isAi){
+					let pos=ai();
+					$(`#${pos.x}_${pos.y}`).addClass('bai')
+					bai[pos.x+'_'+pos.y] = true;
+					delete kb[pos.x+'_'+pos.y]
+					if(pd(pos,bai)>=5){
+						lis.off();
+						alert('白棋赢');
+					}
+					return;
+				}
+			}else{
+				$(this).addClass('bai')
+				bai[data.x+'_'+data.y] = true;
+				delete kb[data.x+'_'+data.y]
+				if(pd(data,bai)>=5){
+					lis.off();
+				}
+			}
+			flag=!flag;
+		})
+	}
+	function people(){
+	    let lis=$('ul>li');
+	    let flag=true;
+		lis.on('click',function(){
+			if($(this).hasClass('hei') || $(this).hasClass('bai')){
+				return;
+			}
+			let data=$(this).data('pos')
+			if(flag){
+				$(this).addClass('hei');
+				hei[data.x+'_'+data.y] = true;
+				if(pd(data,hei)>=5){
+					lis.off();	
+					alert('黑棋赢');
+				}
+			}else{
+				$(this).addClass('bai')
+				bai[data.x+'_'+data.y] = true;
+				if(pd(data,bai)>=5){
+					lis.off();
+					alert('白棋赢');
+				}
+			}
+			flag=!flag;
+		})
+	}
+function pd(pos,obj){
+		let rows=a,cols=a,zx=a,yx=a;
+		let i=pos.x,j=pos.y+1;
+		while(obj[i+'_'+j]){
+			rows++;
+			j++;
+		}
+		j=pos.y-1;
+		while(obj[i+'_'+j]){
+			rows++;
+			j--;
+		}
+
+		i=pos.x+1;j=pos.y;
+		while(obj[i+'_'+j]){
+			cols++;
+			i++;
+		}
+		i=pos.x-1;
+		while(obj[i+'_'+j]){
+			cols++;
+			i--;
+		}
+
+		i=pos.x+1;j=pos.y-1;
+		while(obj[i+'_'+j]){
+			zx++;
+			i++;
+			j--;
+		}
+		i=pos.x-1;j=pos.y+1;
+		while(obj[i+'_'+j]){
+			zx++;
+			i--;
+			j++;
+		}
+
+		i=pos.x-1;j=pos.y-1;
+		while(obj[i+'_'+j]){
+			yx++;
+			i--;
+			j--;
+		}
+		i=pos.x+1;j=pos.y+1;
+		while(obj[i+'_'+j]){
+			yx++;
+			i++;
+			j++;
+		}
+		return Math.max(rows,cols,zx,yx);
+	}
+
+   function ai(){
+   	    let max=-Infinity;
+   	    let max1=-Infinity;
+   	    let zb=null;
+   	    let zb1=null;
+   	    for(let i in kb){
+            if(pd(kb[i],bai)>=max){
+            	max=pd(kb[i],bai);
+            	zb=kb[i];
+            };
+   	    }
+   	    for(let i in kb){
+            if(pd(kb[i],hei)>=max1){
+            	max1=pd(kb[i],hei);
+            	zb1=kb[i];
+            };
+   	    }
+   	    return (max>max1) ? zb : zb1;
+   }
+})
+</script>
+
+
